@@ -12,8 +12,8 @@ export default async function Page({
     typeof params.position === "string" ? Number(params.position) : NaN;
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-zinc-50">
-      <div className="w-full max-w-md flex flex-col items-center gap-6 text-center">
+    <main className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
+      <div className="w-full max-w-xl flex flex-col gap-10">
         {voucherCode ? (
           <VoucherView code={voucherCode} />
         ) : positionNum > 0 ? (
@@ -30,28 +30,43 @@ function VoucherView({ code }: { code: string }) {
   return (
     <>
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
+        <p className="brand-label mb-5">Voucher reserved</p>
+        <h1 className="brand-heading text-3xl sm:text-5xl text-white">
           Your $50 Avere voucher is reserved
         </h1>
-        <p className="mt-2 text-sm text-zinc-600">
+        <p className="mt-5 text-base sm:text-lg font-light text-white/55 leading-relaxed">
           Check your inbox for the confirmation email.
         </p>
       </div>
-      <div className="w-full">
-        <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">
-          Voucher code
-        </p>
-        <p className="font-mono text-2xl bg-white border border-zinc-300 rounded-md px-4 py-4 tracking-[0.3em]">
+
+      <div>
+        <p className="brand-label mb-3">Voucher code</p>
+        <p className="font-mono text-2xl sm:text-3xl bg-[#1a1a1a] text-[#39ff14] border border-[#39ff14]/30 px-6 py-6 tracking-[0.4em] text-center">
           {code}
         </p>
       </div>
-      <div className="w-full text-left">
-        <h2 className="text-sm font-medium text-zinc-900 mb-2">Terms</h2>
-        <ul className="text-sm text-zinc-600 space-y-1 list-disc list-inside">
-          <li>$50 USDC pre-approved loan at 2% APR</li>
-          <li>3-month term</li>
-          <li>Redeemable within 90 days of official launch</li>
-          <li>Bound to your email — use the same address at redemption</li>
+
+      <div>
+        <p className="brand-label mb-4">Terms</p>
+        <ul className="text-sm text-white/65 leading-relaxed space-y-2">
+          <li className="flex gap-3">
+            <span className="text-[#39ff14]">→</span>
+            <span>$50 USDC pre-approved loan at 2% APR</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="text-[#39ff14]">→</span>
+            <span>3-month term</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="text-[#39ff14]">→</span>
+            <span>Redeemable within 90 days of official launch</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="text-[#39ff14]">→</span>
+            <span>
+              Bound to your email — use the same address at redemption
+            </span>
+          </li>
         </ul>
       </div>
     </>
@@ -61,14 +76,17 @@ function VoucherView({ code }: { code: string }) {
 function WaitlistView({ position }: { position: number }) {
   return (
     <>
-      <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
-        You&apos;re #{position} on the waitlist
-      </h1>
-      <p className="text-sm text-zinc-600">
-        The first 200 vouchers have been claimed. We&apos;ll keep you posted as
-        we approach launch.
-      </p>
-      <p className="text-sm text-zinc-600">
+      <div>
+        <p className="brand-label mb-5">On the waitlist</p>
+        <h1 className="brand-heading text-3xl sm:text-5xl text-white">
+          You&apos;re #{position} on the waitlist
+        </h1>
+        <p className="mt-5 text-base sm:text-lg font-light text-white/55 leading-relaxed">
+          The first 200 vouchers have been claimed. We&apos;ll keep you posted
+          as we approach launch.
+        </p>
+      </div>
+      <p className="text-sm text-white/45">
         Check your inbox for the confirmation email.
       </p>
     </>
@@ -78,14 +96,17 @@ function WaitlistView({ position }: { position: number }) {
 function FallbackView() {
   return (
     <>
-      <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
-        Looks like you arrived here without submitting the form
-      </h1>
+      <div>
+        <p className="brand-label mb-5">Hmm</p>
+        <h1 className="brand-heading text-2xl sm:text-3xl text-white">
+          Looks like you arrived here without submitting the form
+        </h1>
+      </div>
       <Link
         href="/"
-        className="text-sm text-zinc-700 underline hover:text-zinc-900"
+        className="brand-label text-[#39ff14] hover:text-white transition-colors inline-flex items-center gap-2 w-fit"
       >
-        Go to the signup form
+        ← Go to the signup form
       </Link>
     </>
   );

@@ -118,12 +118,9 @@ export function WaitlistForm({
         strategy="afterInteractive"
         onLoad={() => setScriptLoaded(true)}
       />
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 w-full max-w-md"
-      >
-        <label className="flex flex-col gap-1">
-          <span className="text-sm font-medium text-zinc-900">Email</span>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full">
+        <label className="flex flex-col gap-2">
+          <span className="brand-label">Email</span>
           <input
             type="email"
             required
@@ -131,18 +128,18 @@ export function WaitlistForm({
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
             disabled={submitting}
-            className="px-3 py-2 border border-zinc-300 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500 disabled:bg-zinc-100"
+            className="brand-input"
           />
         </label>
 
-        <label className="flex items-start gap-2 text-sm text-zinc-700">
+        <label className="flex items-start gap-3 text-sm text-white/65 leading-relaxed cursor-pointer">
           <input
             type="checkbox"
             checked={residencyConfirmed}
             onChange={(e) => setResidencyConfirmed(e.target.checked)}
             required
             disabled={submitting}
-            className="mt-0.5"
+            className="mt-1 w-4 h-4 accent-[#39ff14] cursor-pointer"
           />
           <span>{US_RESIDENCY_DISCLAIMER}</span>
         </label>
@@ -150,7 +147,7 @@ export function WaitlistForm({
         <div ref={widgetContainerRef} />
 
         {error && (
-          <p className="text-sm text-red-600" role="alert">
+          <p className="text-sm text-red-400" role="alert">
             {error}
           </p>
         )}
@@ -158,9 +155,9 @@ export function WaitlistForm({
         <button
           type="submit"
           disabled={submitting || !turnstileToken || !residencyConfirmed}
-          className="px-4 py-2 bg-zinc-900 text-white rounded-md font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-700 transition-colors"
+          className="btn-green"
         >
-          {submitting ? "Submitting…" : "Reserve voucher"}
+          {submitting ? "Submitting…" : "Reserve voucher →"}
         </button>
       </form>
     </>

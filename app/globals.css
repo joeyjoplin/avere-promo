@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-green: #39ff14;
+  --color-black: #0a0a0a;
+  --color-dark: #111111;
+  --color-gray: #888888;
+  --color-light: #e8e8e8;
+  --color-white: #ffffff;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-green: var(--color-green);
+  --color-brand-black: var(--color-black);
+  --color-brand-dark: var(--color-dark);
+  --color-brand-gray: var(--color-gray);
+  --color-brand-light: var(--color-light);
+  --font-sans: var(--font-open-sans), "Open Sans", sans-serif;
+  --font-mono: var(--font-azeret-mono), "Azeret Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-open-sans), "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-label {
+  font-family: var(--font-azeret-mono), "Azeret Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--color-gray);
+  text-transform: uppercase;
+}
+
+.brand-heading {
+  font-family: var(--font-azeret-mono), "Azeret Mono", monospace;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.brand-input {
+  font-family: var(--font-azeret-mono), "Azeret Mono", monospace;
+  font-size: 16px;
+  padding: 20px 24px;
+  background: #1a1a1a;
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  outline: none;
+  width: 100%;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.brand-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.brand-input:focus {
+  background: #1f1f1f;
+  border-color: rgba(57, 255, 20, 0.4);
+}
+
+.brand-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px 2px rgba(57, 255, 20, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 22px 6px rgba(57, 255, 20, 0.65);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  to {
+    transform: translateX(250%) skewX(-15deg);
+  }
+}
+
+.btn-green {
+  font-family: var(--font-azeret-mono), "Azeret Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--color-green);
+  color: var(--color-black);
+  border: none;
+  padding: 20px 32px;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.btn-green::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+
+.btn-green:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px 8px rgba(57, 255, 20, 0.7);
+}
+
+.btn-green:hover:not(:disabled)::after {
+  animation: shimmer 0.65s ease forwards;
+}
+
+.btn-green:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  animation: none;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-green {
+    animation: none;
+  }
+  .btn-green::after {
+    display: none;
+  }
+  .btn-green:hover {
+    transform: none;
+  }
 }
