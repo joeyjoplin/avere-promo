@@ -157,7 +157,7 @@ export function WaitlistForm({
           disabled={submitting || !turnstileToken || !residencyConfirmed}
           className="btn-green"
         >
-          {submitting ? "Submitting…" : "Reserve voucher →"}
+          {submitting ? "Submitting…" : "Grant voucher →"}
         </button>
       </form>
     </>

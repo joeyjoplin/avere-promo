@@ -24,8 +24,8 @@ export async function sendVoucherEmail(
   const { error } = await resend.emails.send({
     from: fromAddress,
     to,
-    subject: "Your $50 Avere voucher is reserved",
-    text: `Your $50 Avere voucher is reserved.
+    subject: "Your $50 Avere voucher is granted",
+    text: `Your $50 Avere voucher is granted.
 
 Voucher code: ${voucherCode}
 
@@ -41,7 +41,7 @@ ${US_RESIDENCY_DISCLAIMER}
     html: `<!doctype html>
 <html>
   <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 480px; margin: 0 auto; padding: 24px; color: #111;">
-    <h1 style="font-size: 20px; margin: 0 0 16px;">Your $50 Avere voucher is reserved</h1>
+    <h1 style="font-size: 20px; margin: 0 0 16px;">Your $50 Avere voucher is granted</h1>
     <p style="margin: 0 0 8px;">Voucher code:</p>
     <p style="font-family: 'Menlo', monospace; font-size: 24px; background: #f5f5f5; padding: 16px; text-align: center; letter-spacing: 4px; margin: 0 0 24px;">${voucherCode}</p>
     <h2 style="font-size: 16px; margin: 0 0 8px;">Terms</h2>

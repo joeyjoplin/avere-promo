@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page({
@@ -14,6 +15,14 @@ export default async function Page({
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
       <div className="w-full max-w-xl flex flex-col gap-10">
+        <Image
+          src="/avere-logo.png"
+          alt="Avere"
+          width={180}
+          height={50}
+          priority
+          className="mx-auto h-24 w-auto"
+        />
         {voucherCode ? (
           <VoucherView code={voucherCode} />
         ) : positionNum > 0 ? (
@@ -30,9 +39,9 @@ function VoucherView({ code }: { code: string }) {
   return (
     <>
       <div>
-        <p className="brand-label mb-5">Voucher reserved</p>
+        <p className="brand-label mb-5">Voucher granted</p>
         <h1 className="brand-heading text-3xl sm:text-5xl text-white">
-          Your $50 Avere voucher is reserved
+          Your $50 Avere voucher is granted
         </h1>
         <p className="mt-5 text-base sm:text-lg font-light text-white/55 leading-relaxed">
           Check your inbox for the confirmation email.

@@ -15,7 +15,7 @@ const azeretMono = Azeret_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Avere — Reserve your $50 voucher",
+  title: "Avere — Grant your $50 voucher",
   description:
     "First 200 entries get $50 USDC pre-approved loan at 2% APR, redeemable at official launch. US residents only.",
 };

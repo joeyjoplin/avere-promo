@@ -47,7 +47,7 @@ Build order: lib helpers → API route → form → confirmation page.
 
 ### 3.4 `lib/email.ts` + `lib/copy.ts`
 - [x] `lib/copy.ts` exports canonical `US_RESIDENCY_DISCLAIMER` (single source of truth, imported by form + email).
-- [x] `sendVoucherEmail` (subject: "Your $50 Avere voucher is reserved") and `sendWaitlistEmail` (subject: "You're #N on the Avere waitlist") with plain text + HTML; both throw on Resend error.
+- [x] `sendVoucherEmail` (subject: "Your $50 Avere voucher is granted") and `sendWaitlistEmail` (subject: "You're #N on the Avere waitlist") with plain text + HTML; both throw on Resend error.
 
 ### 3.5 `app/api/waitlist/route.ts` (POST)
 - [x] Strict order enforced: residency → Turnstile → email format → INSERT (with `.select()` for read-back) → email send → UPDATE `email_sent_at`.
@@ -67,7 +67,7 @@ Build order: lib helpers → API route → form → confirmation page.
 - [x] No DB lookup — display-only. Voucher validity checked at production redemption, not here.
 
 ### 3.8 `app/layout.tsx`
-- [x] Metadata updated: title "Avere — Reserve your $50 voucher", description matching form copy. Geist fonts and base layout retained from scaffold.
+- [x] Metadata updated: title "Avere — Grant your $50 voucher", description matching form copy. Geist fonts and base layout retained from scaffold.
 
 ---
 
@@ -99,7 +99,7 @@ Build order: lib helpers → API route → form → confirmation page.
 
 ## Phase 7 — Marketing handoff
 
-- [ ] **7.1 Send designer the URL** (`https://waitlist.avere.xyz`) and CTA copy guidance ("Reserve your $50 voucher", "first 200 only").
+- [ ] **7.1 Send designer the URL** (`https://waitlist.avere.xyz`) and CTA copy guidance ("Grant your $50 voucher", "first 200 only").
 - [ ] **7.2 Confirm** designer pasted URL into existing landing CTA and shipped.
 
 ---

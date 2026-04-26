@@ -44,7 +44,7 @@ Avere Landing Page (marketing site, not this repo)
 │       (KYC sandbox integration in the demo is part of the Avere
 │       core product roadmap, not this repo.)
 │
-└─ CTA "Reserve your $50 voucher (first 200 only)" → THIS APP
+└─ CTA "Grant your $50 voucher (first 200 only)" → THIS APP
     └─ Email-only form, US-residency checkbox, Turnstile challenge
         └─ Trigger generates voucher_code if position ≤ 200
             └─ Email confirms voucher (or waitlist position if > 200)
@@ -270,7 +270,7 @@ She does not need:
 - Coordination with engineering for normal copy or design changes
 
 She **does** need to know:
-- The CTA copy should match the campaign promise: "Reserve your $50 voucher" or "Get early access" or similar
+- The CTA copy should match the campaign promise: "Grant your $50 voucher" or "Get early access" or similar
 - The subtitle/body should mention "first 200 only" to convey scarcity
 - Any visual treatment, animations, or hero copy on the landing page is her domain — she does not need engineering input
 
